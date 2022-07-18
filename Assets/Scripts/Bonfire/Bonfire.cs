@@ -28,6 +28,13 @@ public class Bonfire : MonoBehaviour
         StartCoroutine(LoseHealth());
     }
 
+    public void Restart()
+    {
+        _health = _startHealth;
+        _maxHealth = _startHealth;
+        _particle.gameObject.SetActive(true);
+    }
+
     private IEnumerator LoseHealth()
     {
         while (true)
@@ -58,12 +65,5 @@ public class Bonfire : MonoBehaviour
     {
         _particle.gameObject.SetActive(false);
         Died?.Invoke();
-    }
-
-    public void Restart()
-    {
-        _health = _startHealth;
-        _maxHealth = _startHealth;
-        _particle.gameObject.SetActive(true);
     }
 }
