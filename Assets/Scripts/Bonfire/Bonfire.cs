@@ -14,7 +14,7 @@ public class Bonfire : MonoBehaviour
     public int Health => _health;
     public int MaxHealth => _maxHealth;
 
-    public event UnityAction OnHealthChanged;
+    public event UnityAction HealthChanged;
     public event UnityAction Died;
 
     private void Awake()
@@ -46,7 +46,7 @@ public class Bonfire : MonoBehaviour
             if (_health < 0)
                 StopGame();
 
-            OnHealthChanged?.Invoke();
+            HealthChanged?.Invoke();
         }
     }
 
@@ -57,7 +57,7 @@ public class Bonfire : MonoBehaviour
             _health += player.GetPoints();
             _health = Mathf.Clamp(_health, _health, _maxHealth);
 
-            OnHealthChanged?.Invoke();
+            HealthChanged?.Invoke();
         }
     }
 

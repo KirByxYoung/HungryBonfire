@@ -17,12 +17,12 @@ public class PlayerPointsViewer : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.OnChangedPoints += ChangePoints;
+        _player.ChangedPoints += ChangePoints;
     }
 
     private void OnDisable()
     {
-        _player.OnChangedPoints -= ChangePoints;
+        _player.ChangedPoints -= ChangePoints;
     }
 
     private void Start()

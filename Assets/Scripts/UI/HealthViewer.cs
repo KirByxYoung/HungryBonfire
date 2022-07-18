@@ -21,12 +21,12 @@ public class HealthViewer : MonoBehaviour
 
     private void OnEnable()
     {
-        _bonfire.OnHealthChanged += ChangeHealth;  
+        _bonfire.HealthChanged += ChangeHealth;  
     }
 
     private void OnDisable()
     {
-        _bonfire.OnHealthChanged -= ChangeHealth;
+        _bonfire.HealthChanged -= ChangeHealth;
     }
 
     private void Start()

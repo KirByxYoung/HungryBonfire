@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public int Points => _points;
     public int MaxPoints => _maxPoints;
 
-    public event UnityAction OnChangedPoints;
+    public event UnityAction ChangedPoints;
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
 
         _points = Mathf.Clamp(_points, 0, _maxPoints);
 
-        OnChangedPoints?.Invoke();
+        ChangedPoints?.Invoke();
     }
 
     public int GetPoints()
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
         _points = 0;
 
-         OnChangedPoints?.Invoke();
+         ChangedPoints?.Invoke();
 
         return points;
     }
@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
     public void Restart()
     {
         _points = 0;
-        OnChangedPoints?.Invoke();
+        ChangedPoints?.Invoke();
         transform.position = _startPosition;
     }
 }
